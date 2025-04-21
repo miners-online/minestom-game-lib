@@ -41,7 +41,7 @@ publishing {
     repositories {
         maven {
             name = 'miners_online_snapshots'
-            url = uri("https://maven.minersonline.uk/snapshots")
+            url = System.getenv("REPO_URL") ?: uri("https://maven.minersonline.uk/snapshots")
             credentials {
                 username = findProperty("repoUser") ?: System.getenv("REPO_USER")
                 password = findProperty("repoPassword") ?: System.getenv("REPO_PASSWORD")
