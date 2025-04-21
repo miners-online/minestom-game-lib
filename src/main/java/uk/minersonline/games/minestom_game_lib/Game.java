@@ -44,8 +44,6 @@ public abstract class Game {
         Runtime.getRuntime().addShutdownHook(new Thread(featureManager::disableAll));
         // Start the server on the designated address and port (adjust if necessary)
         minecraftServer.start(address, port);
-
-        // test
     }
 
     protected abstract List<Feature<? extends Config>> getFeatures();
