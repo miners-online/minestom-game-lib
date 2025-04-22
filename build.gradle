@@ -5,7 +5,13 @@ plugins {
 }
 
 group = 'uk.minersonline.games'
-version = '1.0-SNAPSHOT'
+def gitHash = 'unknown'
+def proc = 'git rev-parse --short HEAD'.execute()
+proc.in.eachLine { gitHash = it.trim() }
+proc.waitFor()
+
+version = "${gitHash}-SNAPSHOT"
+
 
 repositories {
     mavenCentral()
